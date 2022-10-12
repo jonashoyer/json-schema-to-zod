@@ -1,6 +1,13 @@
 # json-schema-to-zod
 
-Validate data with a json schema parsed to zod
+Validate data with a JSON schema parsed to zod
+
+### Limited JSON schema support!
+Only a few types are currently supported
+- `Array`
+- `Object`
+- `Enum`
+- `String`, `Number`, `Integer`, `Boolean`
 
 ### Usage
 ```jsx
