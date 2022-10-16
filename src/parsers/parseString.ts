@@ -12,7 +12,7 @@ export const parseString = (schema: JSONSchema7 & { type: "string" }) => {
   const withFormat = (z: any) => {
     switch(schema.format) {
       case 'email': return z.email();
-      case 'uri': return z.uri();
+      case 'uri': return z.url();
       case 'uuid': return z.uuid();
       default: return z;
     }
