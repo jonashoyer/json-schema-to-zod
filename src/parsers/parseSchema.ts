@@ -14,8 +14,6 @@ export const parseSchema = (schema: JSONSchema7 | boolean, useAnyFallback?: bool
     throw new Error(`Invalid schema: ${schema}`);
   }
 
-  console.log('parse', schema);
-
   const parser = parsers.find(e => e.test(schema));
   if (!parser) {
     if (useAnyFallback) return z.any();
