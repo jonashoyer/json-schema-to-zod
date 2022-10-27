@@ -39,6 +39,9 @@ const parsers = [{
   test: (x: JSONSchema7): x is JSONSchema7 & { type: "array" } => x.type === "array",
   parse: parseArray,
 }, {
+  test: (x: JSONSchema7): x is JSONSchema7 & { enum: JSONSchema7Type | JSONSchema7Type[]; } => !!x.enum,
+  parse: parseEnum,
+}, {
   test: primitiveTest(['number', 'integer']),
   parse: parseNumber,
 }, {
@@ -47,7 +50,4 @@ const parsers = [{
 }, {
   test: primitiveTest(['boolean']),
   parse: parseBoolean,
-}, {
-  test: ( x: JSONSchema7 ): x is JSONSchema7 & { enum: JSONSchema7Type | JSONSchema7Type[]; } => !!x.enum,
-  parse: parseEnum,
 }];
