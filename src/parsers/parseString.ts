@@ -5,7 +5,7 @@ import { z } from "zod";
 export const parseString = (schema: JSONSchema7 & { type: "string" }) => {
 
   const withPattern = (z: any) => {
-    if (schema.pattern) return z.regex(new RegExp(JSON.stringify(schema.pattern)));
+    if (schema.pattern) return z.regex(new RegExp(schema.pattern));
     return z;
   }
 
