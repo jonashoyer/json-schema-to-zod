@@ -1,5 +1,5 @@
 import { withRecursive } from "../utils";
-import { JSONSchema7 } from "json-schema";
+import type { JSONSchema7 } from "json-schema";
 import { z } from "zod";
 
 export const parseString = (schema: JSONSchema7 & { type: "string" }) => {
@@ -10,7 +10,7 @@ export const parseString = (schema: JSONSchema7 & { type: "string" }) => {
   }
 
   const withFormat = (z: any) => {
-    switch(schema.format) {
+    switch (schema.format) {
       case 'email': return z.email();
       case 'uri': return z.url();
       case 'uuid': return z.uuid();
